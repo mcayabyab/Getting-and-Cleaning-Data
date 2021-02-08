@@ -1,0 +1,32 @@
+Code Book
+==========
+This code book will describe the data used in this project and the processing required to create the resulting tidy data set. More information about the files is available in `README.txt`.
+
+Subjects:
+30 volunteers performed 6 different activities while wearing a Samsung Galaxy S Smartphone. This data was collected from the accelerometers from the phone.
+
+1. Read data and Merge
+* subject_test : subject IDs for test. Contains a vector of 2947 integers, denoting the ID of the volunteer related to each of the observations in `X_test.txt`.
+* subject_train  : subject IDs for train. Contains a vector of 7352 integers, denoting the ID of the subject related to each of the observations in `X_train.txt`.
+* X_test : values of variables in test. 2947 observations of the 561 features, for 9 of the 30 volunteers.
+* X_train : values of variables in train. 7352 observations of the 561 features, for 21 of the 30 volunteers.
+* y_test : activity ID in test. 2947 integers, denoting the ID of the activity related to each of the observations in `X_test.txt`.
+* y_train : activity ID in train. 7352 integers, denoting the ID of the activity related to each of the observations in `X_train.txt`.
+* activity_labels : Description of activity IDs in y_test and y_train. Total of 6 activities
+* features : description(label) of each variables in X_test and X_train. Total of 561 features.
+
+2. Extract only mean() and std()
+All feature columns were removed that did not contain the exact string "mean()" or "std()". 
+
+3. Changing Column label of dataSet
+Create a vector of "clean" feature names by getting rid of "()" at the end. Then, will apply that to the dataSet to rename column labels.
+
+4. Adding Subject and Activity to the dataSet
+Combine test data and train data of subject and activity, then give descriptive lables.
+
+5. Rename ID to activity name
+Group the activity column of dataSet as "act_group", then rename each levels with 2nd column of activity_levels. Finally apply the renamed "act_group" to dataSet's activity column.
+
+
+## 6. Output tidy data
+In this part, dataSet is melted to create tidy data, which is outputed as "tidy_data.txt"
